@@ -1,0 +1,27 @@
+#Build docker Image
+docker build -t m8p-chat-app:v1.0 .
+
+#Build with platform
+docker buildx build --platform linux/amd64 -t m8p-chat-app:v1.0 --load .
+
+
+#Run docker container
+docker run -p 3000:3000 m8p-chat-app:v1.0
+
+#Run with name and tag
+docker run -d --name m8p-chat-app-container -p 3000:3000 m8p-chat-app:v1.0
+
+#With platform
+docker run --name m8p-chat-app-container --platform linux/amd64 -p 3000:3000 m8p-chat-app:v1.0
+
+###Docker Push
+#1. Login
+docker login
+
+#2.Tag
+docker tag m8p-chat-app:v1.0 newjakir/m8p-chat-app:v1.0
+
+#3. Push
+docker push newjakir/m8p-chat-app:v1.0
+
+

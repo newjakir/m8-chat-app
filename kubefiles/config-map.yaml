@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: m8p-chat-app-config
+  namespace: jakir007
+data:
+  NODE_ENV: "production"
+  PORT: "3000"

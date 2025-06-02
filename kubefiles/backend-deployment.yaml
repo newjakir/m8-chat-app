@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: m8p-chat-app-deployment
+  namespace: jakir007
+  labels:
+    app: m8p-chat-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: m8p-chat-app-deployment
+  template:
+    metadata:
+      name: m8p-chat-app-deployment
+      labels:
+        app: m8p-chat-app-deployment
+    spec:
+      containers:
+        - name: m8p-chat-app-container
+          image: newjakir/m8p-chat-app:v1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+      restartPolicy: Always
